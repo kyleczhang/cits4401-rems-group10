@@ -229,6 +229,8 @@ The selected subset focuses on application submission and administrative complet
 
 ### 4.1 Functional Requirements
 
+All requirements listed in Section 4.1 are functional requirements, describing system behaviour. Requirements in Section 4.2 are non-functional requirements, describing system constraints and quality attributes.
+
 **FR-01: Centralised Document Storage**
 The system shall store all documents associated with an ethics application in a single, centralised repository, accessible from within the application record.
 
@@ -308,7 +310,7 @@ The system shall be usable by administrative staff with no more than 2 hours of 
 
 ### 5.1 Use Case Diagram
 
-The following use case diagram covers the administrative staff workflow subsystem. It includes two primary actors: **Administrative Staff** and **Researcher**, with the **Ethics Committee** as a secondary actor for interactions at the boundary of the admin subsystem.
+The following use case diagram covers the administrative staff workflow subsystem. It includes two primary actors: **Administrative Staff** and **Researcher**, with the **Ethics Committee** as a secondary actor for interactions at the boundary of the admin subsystem.It aligns with the defined requirements for the administrative workflow subset, particularly requirements related to application submission, completeness verification, status tracking, and communication between stakeholders.
 
 ![Use Case Diagram](cits4401-use-case-diagram.drawio.png)
 
@@ -398,7 +400,7 @@ This flow reflects a system constraint identified during the stakeholder intervi
 
 ## 6. Assumptions
 
-The following assumptions were made during the preparation of this report:
+These assumptions were made to address gaps or uncertainties in the project brief and areas not fully clarified during the stakeholder interview:
 
 1. The interviewee (Syed Gilani) is representative of the administrative staff role and the practices described reflect the standard operational workflow at the University of East Angria.
 2. The risk assessment questionnaire that researchers currently complete on a separate website will either be integrated into REMS or will continue to exist as an external tool whose output (the risk score) is entered into REMS.
