@@ -3,9 +3,9 @@
 # Stakeholder role: Admin (Syed Gilani)
 
 
-Q7 How are amendments or extensions to previously approved applications handled?
+ ## Q7 How are amendments or extensions to previously approved applications handled?
 
-Response Summary
+**Response Summary**
 
 The stakeholder explained that once an application has been approved, researchers cannot modify it directly. If changes are required, such as adding new participant groups or updating documentation, the original approval remains valid only for the submitted information. Any new or updated information requires the researcher to submit a completely new application, which goes through the full approval process again.
 
