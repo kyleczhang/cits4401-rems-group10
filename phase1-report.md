@@ -232,7 +232,7 @@ The following requirements cover the **administrative staff workflow subsystem**
 The system shall store all documents associated with an ethics application in a single, centralised repository, accessible from within the application record.
 
 **FR-02: Broad File Format Support**
-The system shall accept document uploads in any common file format, including but not limited to PDF, Word (.docx), Excel (.xlsx), image formats, and compressed/encrypted archives.
+The system shall accept document uploads in at minimum the following formats: PDF, DOCX, XLSX, common image formats (e.g., JPEG, PNG), and compressed or encrypted files.
 
 **FR-03: Risk-Score-Based Document Checklist**
 The system shall display a checklist of required supporting documents for each application, determined automatically by the application's risk score category.
@@ -241,7 +241,9 @@ The system shall display a checklist of required supporting documents for each a
 The system shall automatically verify that all documents required by the risk-score-based checklist have been uploaded, and flag any missing items to the administrative staff member reviewing the application.
 
 **FR-05: Application Status Tracking**
-The system shall maintain and display the current status of each application. Supported statuses shall include at minimum: Submitted, Under Admin Review, Forwarded to Committee, Under Committee Review, Returned to Researcher, Approved, Conditionally Approved, Rejected, and Expedited.
+The system shall maintain and display the current status of each application. Supported statuses shall include at minimum: Submitted, Under Admin Review, Forwarded to Committee, Returned to Researcher, and Expedited.  
+
+Note: Committee decision statuses (Approved, Conditionally Approved, Rejected) are included only as outcome states and are not part of the detailed workflow covered in this subset.
 
 **FR-06: Status Dashboard**
 The system shall provide administrative staff with a dashboard view listing all applications and their current statuses, sortable and filterable by status, submission date, risk category, and researcher name.
@@ -334,6 +336,7 @@ The following use case diagram covers the administrative staff workflow subsyste
 | View Document Version History | Administrative Staff | Admin reviews the timeline of document submissions and revisions. |
 
 ### 5.2 Detailed Use Case Description: Verify Application Completeness
+This use case focuses specifically on the administrative completeness checking stage of the workflow, which falls within the chosen subset. Committee review and decision-making are outside the scope of this use case.
 
 | Field | Detail |
 |-------|--------|
@@ -371,6 +374,7 @@ The following use case diagram covers the administrative staff workflow subsyste
 | 7a | The researcher receives a notification detailing which documents must be provided. The use case ends. (The process resumes from Step 1 when the researcher resubmits.) |
 
 #### Alternative Flow 2: Application Approaching Two-Week Deadline
+This flow reflects a system constraint identified during the stakeholder interview, where a two-week turnaround SLA triggers expedited handling.
 
 | Step | Action |
 |------|--------|
