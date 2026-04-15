@@ -244,7 +244,7 @@ The system shall display a checklist of required supporting documents for each a
 The system shall automatically verify that all documents required by the risk-score-based checklist have been uploaded, and flag any missing items to the administrative staff member reviewing the application.
 
 **FR-05: Application Status Tracking**
-The system shall maintain and display the current status of each application. Supported statuses shall include at minimum: Submitted, Under Admin Review, Forwarded to Committee, Returned to Researcher, and Expedited.  
+The system shall maintain and display the current status of each application. Supported statuses shall include at minimum: Submitted, Under Admin Review, Forwarded to Committee, Returned to Researcher, and Expedited.
 
 Note: Committee decision statuses (Approved, Conditionally Approved, Rejected) are included only as outcome states and are not part of the detailed workflow covered in this subset.
 
@@ -263,22 +263,25 @@ The system shall allow administrative staff to tag a verified application with i
 **FR-10: Admin-to-Researcher Communication**
 The system shall provide a messaging mechanism through which administrative staff can send requests to researchers (e.g., for missing documents) that are recorded against the application record.
 
-**FR-11: Deadline Tracking and Alerts**
+**FR-11: Committee-to-Researcher Communication**
+The system shall provide a messaging mechanism through which Ethics Committee members can send content-related clarification or revision requests directly to researchers. These communications shall be recorded against the application record and shall not be visible to administrative staff where privilege constraints apply.
+
+**FR-12: Deadline Tracking and Alerts**
 The system shall track the elapsed time since each application's submission date and generate an alert to administrative staff when an application approaches the two-week processing deadline.
 
-**FR-12: Expedited Status Flag**
+**FR-13: Expedited Status Flag**
 The system shall allow administrative staff to mark an application as "Expedited" when the two-week deadline is at risk, with an associated notification sent to the researcher.
 
-**FR-13: Role-Based Document Access for Admin Staff**
+**FR-14: Role-Based Document Access for Admin Staff**
 The system shall restrict administrative staff to viewing only document metadata (file name, type, upload date, version) and shall not permit access to document contents.
 
-**FR-14: Segmented Audit Trail**
+**FR-15: Segmented Audit Trail**
 The system shall maintain an audit trail of all actions taken on an application. Admin-side actions (submissions, completeness checks, forwarding, communications) shall be visible to both administrative staff and Ethics Committee members. Committee-side actions (reviews, deliberations, decisions) shall be visible only to Ethics Committee members.
 
-**FR-15: New Case for Scope Changes**
+**FR-16: New Case for Scope Changes**
 The system shall require that any change in research scope after approval be submitted as a new application. The system shall allow the new application to reference the original approved case.
 
-**FR-16: Conflict of Interest Declaration**
+**FR-17: Conflict of Interest Declaration**
 The system shall allow any user (administrative staff or committee member) to declare a conflict of interest on a specific application, triggering a notification to the relevant supervisory board (admin board or ethics board) for reassignment.
 
 ### 4.2 Non-Functional Requirements
@@ -287,7 +290,7 @@ The system shall allow any user (administrative staff or committee member) to de
 The system shall require all users to authenticate before accessing any functionality, using the university's existing identity provider.
 
 **NFR-02: Confidentiality**
-The system shall enforce access controls such that application data classified as sensitive (document contents, committee deliberations) is accessible only to authorised roles, as defined in FR-13 and FR-14.
+The system shall enforce access controls such that application data classified as sensitive (document contents, committee deliberations) is accessible only to authorised roles, as defined in FR-14 and FR-15.
 
 **NFR-03: Audit Integrity**
 The audit trail shall be append-only; no user shall be able to modify or delete audit trail entries.
@@ -339,6 +342,7 @@ The following use case diagram covers the administrative staff workflow subsyste
 | View Document Version History | Administrative Staff | Admin reviews the timeline of document submissions and revisions. |
 
 ### 5.2 Detailed Use Case Description: Verify Application Completeness
+
 This use case focuses specifically on the administrative completeness checking stage of the workflow, which falls within the chosen subset. Committee review and decision-making are outside the scope of this use case.
 
 | Field | Detail |
@@ -377,6 +381,7 @@ This use case focuses specifically on the administrative completeness checking s
 | 7a | The researcher receives a notification detailing which documents must be provided. The use case ends. (The process resumes from Step 1 when the researcher resubmits.) |
 
 #### Alternative Flow 2: Application Approaching Two-Week Deadline
+
 This flow reflects a system constraint identified during the stakeholder interview, where a two-week turnaround SLA triggers expedited handling.
 
 | Step | Action |
