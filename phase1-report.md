@@ -224,7 +224,8 @@ Administrative staff check whether the required documents are present using a qu
 
 ## 4. Requirements Specification
 
-The following requirements cover the **administrative staff workflow subsystem** of REMS — specifically application intake, completeness verification, status tracking, document management, communication, and deadline monitoring. This subset was chosen because the interview confirmed that administrative staff are the central operational users, and their pain points (file tracking, version control, status visibility) represent the most impactful areas for the new system.
+The following requirements cover the **administrative staff workflow subsystem** of REMS — specifically application intake, completeness verification, status tracking, document management, communication, and deadline monitoring.
+The selected subset focuses on application submission and administrative completeness checking. This was chosen because it aligns with the administrative staff stakeholder investigated in the interview and represents a clearly defined and high-impact portion of the REMS workflow, particularly addressing key pain points such as document management, status tracking, and completeness verification.
 
 ### 4.1 Functional Requirements
 
