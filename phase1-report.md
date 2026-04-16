@@ -264,13 +264,13 @@ The system shall allow administrative staff to tag a verified application with i
 The system shall allow administrative staff to send requests to researchers regarding missing documents, incomplete submissions, or other administrative issues. Each communication shall be linked to the relevant application record and stored with its sender, recipient, timestamp, and message content.
 
 **FR-11: Committee-to-Researcher Communication**
-The system shall allow Ethics Committee members to send clarification or revision requests directly to researchers regarding the content or adequacy of submitted documents. Each communication shall be linked to the relevant application record and stored with its sender, recipient, timestamp, and message content.
+The system shall provide a messaging mechanism through which Ethics Committee members can send content-related clarification or revision requests directly to researchers. These communications shall be recorded against the application record and shall not be visible to administrative staff where privilege constraints apply.
 
 **FR-12: Deadline Tracking and Alerts**
-The system shall track the elapsed time since the submission date of each application and generate an alert to administrative staff when an application is approaching the university's two-week processing target.
+The system shall track the elapsed time since each application's submission date and generate an alert to administrative staff when an application approaches the two-week processing deadline.
 
-**FR-13: Expedited Handling**
-The system shall allow an authorised user to mark an application as expedited when the application is at risk of exceeding the university's two-week processing target. When an application is marked as expedited, the system shall record this action in the audit trail and notify the researcher.
+**FR-13: Expedited Status Flag**
+The system shall allow administrative staff to mark an application as "Expedited" when the two-week deadline is at risk, with an associated notification sent to the researcher.
 
 **FR-14: Role-Based Access to Documents**
 The system shall enforce role-based access controls on application documents. Administrative staff shall be able to view document metadata, including file name, file type, upload date, and version information, but shall not be able to view document contents.
@@ -369,50 +369,4 @@ This use case focuses specifically on the administrative completeness checking s
 | 5 | The administrative staff member selects "Forward to Committee," confirming the risk score tag. |
 | 6 | The system updates the application status to "Forwarded to Committee" and records the action (staff member identity, timestamp) in the audit trail. |
 | 7 | The system sends a notification to the researcher confirming that their application has passed the completeness check and is now under committee review. |
-
-#### Alternative Flow 1: Missing Documents
-
-| Step | Action |
-|------|--------|
-| 3a | The system indicates that one or more required documents are missing from the checklist. |
-| 4a | The administrative staff member reviews the list of missing items and selects "Request Missing Documents." |
-| 5a | The system presents a pre-populated message listing the missing documents. The staff member may add additional notes. |
-| 6a | The system sends the request to the researcher, updates the application status to "Returned to Researcher," and records the action in the audit trail. |
-| 7a | The researcher receives a notification detailing which documents must be provided. The use case ends. (The process resumes from Step 1 when the researcher resubmits.) |
-
-#### Alternative Flow 2: Application Approaching Two-Week Deadline
-
-This flow reflects a system constraint identified during the stakeholder interview, where a two-week turnaround SLA triggers expedited handling.
-
-| Step | Action |
-|------|--------|
-| 1b | The administrative staff member opens the status dashboard and notices that an application is flagged with a deadline warning (approaching the two-week SLA). |
-| 2b | The staff member opens the flagged application and proceeds with the completeness check as in Steps 2–4 of the main scenario. |
-| 3b | Regardless of whether the application is complete or requires follow-up, the staff member additionally selects "Mark as Expedited." |
-| 4b | The system adds the "Expedited" tag to the application, updates the audit trail, and sends a notification to the researcher informing them that their application has been expedited. |
-| 5b | If the application is complete, the flow continues from Step 5 of the main scenario with the expedited tag included. If documents are missing, Alternative Flow 1 is followed, with the expedited tag applied. |
-
-#### Alternative Flow 3: Unsupported or Corrupted File Detected
-
-| Step | Action |
-|------|--------|
-| 3c | During the automated cross-reference (Step 3), the system detects that an uploaded file cannot be processed (e.g., it is corrupted, or its format is unrecognisable despite broad format support). |
-| 4c | The system flags the affected document with an error indicator on the checklist. |
-| 5c | The administrative staff member selects "Request Missing Documents" and the system includes the flagged file in the request, noting the specific issue (corruption or format error). |
-| 6c | The flow continues as in Alternative Flow 1, Steps 6a–7a. |
-
----
-
-## 6. Assumptions
-
-These assumptions were made to address gaps or uncertainties in the project brief and areas not fully clarified during the stakeholder interview:
-
-1. The interviewee (Syed Gilani) is representative of the administrative staff role and the practices described reflect the standard operational workflow at the University of East Angria.
-2. The risk assessment questionnaire that researchers currently complete on a separate website will either be integrated into REMS or will continue to exist as an external tool whose output (the risk score) is entered into REMS.
-3. The Ethics Committee's internal reviewer allocation rules are out of scope for the administrative staff subsystem and will be addressed separately if the committee's workflow is modelled.
-4. The two-week turnaround SLA is an informal institutional commitment rather than a regulatory requirement, but should still be enforced by the system.
-5. "Expedited" processing involves prioritisation within the committee pipeline but does not change the fundamental review process.
-6. The university has an existing identity provider (e.g., single sign-on) that REMS can integrate with for authentication.
-7. Data retention requirements (NFR-06) are based on general university research record-keeping norms; the exact policy should be confirmed with the university.
-8. Although the interviewee, acting as administrative staff, stated that researchers "should not be able to see anything during this entire process," we interpreted this as referring to internal audit trail information and other substantive internal content such as committee comments, notes, and deliberations. We therefore assume that high-level application status (e.g., "Submitted," "Under Review," "Returned to Researcher," "Approved," "Rejected") are distinct from application content and can be shown to researchers, provided that the internal details underlying each status remain hidden.
-9. Although the interviewee initially referred to rereading entire documents when revisions are submitted, later responses clarified that administrative staff can see only file headers and metadata, while document contents are visible only to the Ethics Committee. We therefore assume that content review is outside the administrative role. For the administrative subsystem, version control is interpreted as file-level tracking rather than content comparison, supported by information such as upload history, replacement sequence, timestamps, uploader identity, missing or resubmitted documents, and file hashes to detect whether a file has changed between submissions.
+|
