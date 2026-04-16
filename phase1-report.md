@@ -132,27 +132,27 @@ Administrative staff check whether the required documents are present using a qu
 
 #### Q5: Communication with Researchers
 
-**Response summary:** Communication with researchers is currently handled by email, but responsibility depends on the type of issue. Administrative staff contact researchers when documents are missing or inconsistent. However, they cannot view document contents and can only see file names or headers. If the issue concerns the content or quality of a document, the Ethics Committee communicates directly with the researcher.
+**Response summary:** Communication is conducted exclusively via email. The only reasons admin staff contact researchers are missing files or inconsistencies. Importantly, admin staff cannot see the *contents* of documents — only headers and file names — so content-related queries are handled directly by Ethics Committee members contacting researchers. This is a privacy constraint: committee deliberations and document contents are privileged.
 
 **Key insights:**
 
-- Communication is split between administrative and committee roles.
-- Administrative staff handle logistical issues only.
-- Content-related communication is restricted to the Ethics Committee because of confidentiality and access-control boundaries.
+- There is a strict separation of concerns: admin staff handle logistics (missing files), committee members handle content issues.
+- Admin staff have no visibility into document contents — only metadata (file names, types).
+- Committee-to-researcher communication bypasses admin staff for content-sensitive matters.
 
-**Refinement to requirements:** The system should support separate communication channels for administrative and committee matters. Administrative staff should be able to contact researchers about missing documents, while committee members should be able to communicate directly with researchers about content-related issues. These communications should be linked to the application record and respect role-based visibility rules.
+**Refinement to requirements:** The system must enforce role-based access control where admin staff can see document metadata but not contents. The communication module must support two distinct channels: admin-to-researcher (for logistical issues) and committee-to-researcher (for content issues), both attached to the application record for audit purposes.
 
 #### Q6: Common Causes of Delays
 
-**Response summary:** Delays occur at both the submission and review stages. Submission-stage delays are caused by missing documents, unclear requirements, or language barriers. Review-stage delays happen when all required documents are present but their contents are not adequate for approval. Administrative staff only check whether documents are present, while the Ethics Committee evaluates their content and quality.
+**Response summary:** Delays occur evenly across both submission and review stages. At submission, researchers may not understand which documents to submit (sometimes due to language barriers). At the review stage, researchers may have submitted all required documents but failed to include the correct content within them — something only the committee can identify. The interviewee noted that the admin team's checklist is only about *presence* of documents, not their quality or content.
 
 **Key insights:**
 
-- Delays come from two different stages of the process.
-- Administrative checking is limited to completeness, not document quality.
-- Review-stage delays cannot be prevented by admin checks alone.
+- Submission-stage delays are caused by missing documents; review-stage delays by inadequate content.
+- Admin validation cannot prevent review-stage delays since admin staff cannot read document contents.
+- Language barriers are a contributing factor for some researchers.
 
-**Refinement to requirements:** The system should reduce submission delays by giving researchers clearer guidance and document checklists before submission. It should also support structured clarification requests and workflow tracking across both the administrative and committee stages.
+**Refinement to requirements:** The system should provide clear, multilingual guidance to researchers about document requirements. Automated completeness validation can help with submission-stage delays. Review-stage delays require efficient committee communication tools and reminder mechanisms.
 
 #### Q7: Amendments to Approved Applications
 
