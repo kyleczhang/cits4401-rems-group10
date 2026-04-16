@@ -260,8 +260,8 @@ The system shall display a chronological timeline for each application showing a
 **FR-09: Application Forwarding to Committee**
 The system shall allow administrative staff to tag a verified application with its risk score and forward it to the Ethics Committee pipeline for review assignment.
 
-**FR-10: Admin-to-Researcher Communication**
-The system shall provide a messaging mechanism through which administrative staff can send requests to researchers (e.g., for missing documents) that are recorded against the application record.
+**FR-10: Administrative Communication with Researchers**
+The system shall allow administrative staff to send requests to researchers regarding missing documents, incomplete submissions, or other administrative issues. Each communication shall be linked to the relevant application record and stored with its sender, recipient, timestamp, and message content.
 
 **FR-11: Committee-to-Researcher Communication**
 The system shall provide a messaging mechanism through which Ethics Committee members can send content-related clarification or revision requests directly to researchers. These communications shall be recorded against the application record and shall not be visible to administrative staff where privilege constraints apply.
@@ -272,11 +272,11 @@ The system shall track the elapsed time since each application's submission date
 **FR-13: Expedited Status Flag**
 The system shall allow administrative staff to mark an application as "Expedited" when the two-week deadline is at risk, with an associated notification sent to the researcher.
 
-**FR-14: Role-Based Document Access for Admin Staff**
-The system shall restrict administrative staff to viewing only document metadata (file name, type, upload date, version) and shall not permit access to document contents.
+**FR-14: Role-Based Access to Documents**
+The system shall enforce role-based access controls on application documents. Administrative staff shall be able to view document metadata, including file name, file type, upload date, and version information, but shall not be able to view document contents.
 
-**FR-15: Segmented Audit Trail**
-The system shall maintain an audit trail of all actions taken on an application. Admin-side actions (submissions, completeness checks, forwarding, communications) shall be visible to both administrative staff and Ethics Committee members. Committee-side actions (reviews, deliberations, decisions) shall be visible only to Ethics Committee members.
+**FR-15: Segmented Audit Trail and Communication Visibility**
+The system shall maintain an audit trail for each application, including submissions, status changes, document uploads, forwarding actions, and application-related communications. Administrative actions shall be visible to administrative staff and Ethics Committee members. Committee deliberations and committee-to-researcher communications concerning document content shall be visible only to authorised committee members.
 
 **FR-16: New Case for Scope Changes**
 The system shall require that any change in research scope after approval be submitted as a new application. The system shall allow the new application to reference the original approved case.
@@ -369,7 +369,6 @@ This use case focuses specifically on the administrative completeness checking s
 | 5 | The administrative staff member selects "Forward to Committee," confirming the risk score tag. |
 | 6 | The system updates the application status to "Forwarded to Committee" and records the action (staff member identity, timestamp) in the audit trail. |
 | 7 | The system sends a notification to the researcher confirming that their application has passed the completeness check and is now under committee review. |
-
 #### Alternative Flow 1: Missing Documents
 
 | Step | Action |
