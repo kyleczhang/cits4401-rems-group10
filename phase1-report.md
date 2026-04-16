@@ -109,7 +109,7 @@ Administrative staff check whether the required documents are present using a qu
 
 #### Q3: Supporting Documents and Version Control
 
-**Response summary:** Version control is handled poorly. When a revision is requested, admin staff must reread the entire document to ensure no unauthorised changes were made elsewhere — a legal concern. The only way to track versions is by reviewing email chains to determine which document was sent first. The interviewee expressed a desire for a "thread-based system" with a timeline showing which documents were submitted and when.
+**Response summary:** Version control is handled poorly. When a revision is requested, the current process provides poor support for checking whether only the requested changes were made — a legal concern. The only way to track versions is by reviewing email chains to determine which document was sent first. The interviewee expressed a desire for a "thread-based system" with a timeline showing which documents were submitted and when.
 
 **Key insights:**
 
@@ -415,3 +415,4 @@ These assumptions were made to address gaps or uncertainties in the project brie
 6. The university has an existing identity provider (e.g., single sign-on) that REMS can integrate with for authentication.
 7. Data retention requirements (NFR-06) are based on general university research record-keeping norms; the exact policy should be confirmed with the university.
 8. Although the interviewee, acting as administrative staff, stated that researchers "should not be able to see anything during this entire process," we interpreted this as referring to internal audit trail information and other substantive internal content such as committee comments, notes, and deliberations. We therefore assume that high-level application status (e.g., "Submitted," "Under Review," "Returned to Researcher," "Approved," "Rejected") are distinct from application content and can be shown to researchers, provided that the internal details underlying each status remain hidden.
+9. Although the interviewee initially referred to rereading entire documents when revisions are submitted, later responses clarified that administrative staff can see only file headers and metadata, while document contents are visible only to the Ethics Committee. We therefore assume that content review is outside the administrative role. For the administrative subsystem, version control is interpreted as file-level tracking rather than content comparison, supported by information such as upload history, replacement sequence, timestamps, uploader identity, missing or resubmitted documents, and file hashes to detect whether a file has changed between submissions.
