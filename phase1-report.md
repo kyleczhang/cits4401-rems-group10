@@ -132,27 +132,27 @@ Administrative staff check whether the required documents are present using a qu
 
 #### Q5: Communication with Researchers
 
-**Response summary:** Communication is conducted exclusively via email. The only reasons admin staff contact researchers are missing files or inconsistencies. Importantly, admin staff cannot see the *contents* of documents — only headers and file names — so content-related queries are handled directly by Ethics Committee members contacting researchers. This is a privacy constraint: committee deliberations and document contents are privileged.
+**Response summary:** Communication with researchers is currently handled by email, but responsibility depends on the type of issue. Administrative staff contact researchers when documents are missing or inconsistent. However, they cannot view document contents and can only see file names or headers. If the issue concerns the content or quality of a document, the Ethics Committee communicates directly with the researcher.
 
 **Key insights:**
 
-- There is a strict separation of concerns: admin staff handle logistics (missing files), committee members handle content issues.
-- Admin staff have no visibility into document contents — only metadata (file names, types).
-- Committee-to-researcher communication bypasses admin staff for content-sensitive matters.
+- Communication is split between administrative and committee roles.
+- Administrative staff handle logistical issues only.
+- Content-related communication is restricted to the Ethics Committee because of confidentiality and access-control boundaries.
 
-**Refinement to requirements:** The system must enforce role-based access control where admin staff can see document metadata but not contents. The communication module must support two distinct channels: admin-to-researcher (for logistical issues) and committee-to-researcher (for content issues), both attached to the application record for audit purposes.
+**Refinement to requirements:** The system should support separate communication channels for administrative and committee matters. Administrative staff should be able to contact researchers about missing documents, while committee members should be able to communicate directly with researchers about content-related issues. These communications should be linked to the application record and respect role-based visibility rules.
 
 #### Q6: Common Causes of Delays
 
-**Response summary:** Delays occur evenly across both submission and review stages. At submission, researchers may not understand which documents to submit (sometimes due to language barriers). At the review stage, researchers may have submitted all required documents but failed to include the correct content within them — something only the committee can identify. The interviewee noted that the admin team's checklist is only about *presence* of documents, not their quality or content.
+**Response summary:** Delays occur at both the submission and review stages. Submission-stage delays are caused by missing documents, unclear requirements, or language barriers. Review-stage delays happen when all required documents are present but their contents are not adequate for approval. Administrative staff only check whether documents are present, while the Ethics Committee evaluates their content and quality.
 
 **Key insights:**
 
-- Submission-stage delays are caused by missing documents; review-stage delays by inadequate content.
-- Admin validation cannot prevent review-stage delays since admin staff cannot read document contents.
-- Language barriers are a contributing factor for some researchers.
+- Delays come from two different stages of the process.
+- Administrative checking is limited to completeness, not document quality.
+- Review-stage delays cannot be prevented by admin checks alone.
 
-**Refinement to requirements:** The system should provide clear, multilingual guidance to researchers about document requirements. Automated completeness validation can help with submission-stage delays. Review-stage delays require efficient committee communication tools and reminder mechanisms.
+**Refinement to requirements:** The system should reduce submission delays by giving researchers clearer guidance and document checklists before submission. It should also support structured clarification requests and workflow tracking across both the administrative and committee stages.
 
 #### Q7: Amendments to Approved Applications
 
@@ -260,23 +260,23 @@ The system shall display a chronological timeline for each application showing a
 **FR-09: Application Forwarding to Committee**
 The system shall allow administrative staff to tag a verified application with its risk score and forward it to the Ethics Committee pipeline for review assignment.
 
-**FR-10: Admin-to-Researcher Communication**
-The system shall provide a messaging mechanism through which administrative staff can send requests to researchers (e.g., for missing documents) that are recorded against the application record.
+**FR-10: Administrative Communication with Researchers**
+The system shall allow administrative staff to send requests to researchers regarding missing documents, incomplete submissions, or other administrative issues. Each communication shall be linked to the relevant application record and stored with its sender, recipient, timestamp, and message content.
 
-**FR-11: Committee-to-Researcher Communication**
-The system shall provide a messaging mechanism through which Ethics Committee members can send content-related clarification or revision requests directly to researchers. These communications shall be recorded against the application record and shall not be visible to administrative staff where privilege constraints apply.
+**FR-11: Committee Communication with Researchers**
+The system shall allow Ethics Committee members to send clarification or revision requests directly to researchers regarding the content or adequacy of submitted documents. Each communication shall be linked to the relevant application record and stored with its sender, recipient, timestamp, and message content.
 
 **FR-12: Deadline Tracking and Alerts**
-The system shall track the elapsed time since each application's submission date and generate an alert to administrative staff when an application approaches the two-week processing deadline.
+The system shall track the elapsed time since the submission date of each application and generate an alert to administrative staff when an application is approaching the university's two-week processing target.
 
-**FR-13: Expedited Status Flag**
-The system shall allow administrative staff to mark an application as "Expedited" when the two-week deadline is at risk, with an associated notification sent to the researcher.
+**FR-13: Expedited Handling**
+The system shall allow an authorised user to mark an application as expedited when the application is at risk of exceeding the university's two-week processing target. When an application is marked as expedited, the system shall record this action in the audit trail and notify the researcher.
 
-**FR-14: Role-Based Document Access for Admin Staff**
-The system shall restrict administrative staff to viewing only document metadata (file name, type, upload date, version) and shall not permit access to document contents.
+**FR-14: Role-Based Access to Documents**
+The system shall enforce role-based access controls on application documents. Administrative staff shall be able to view document metadata, including file name, file type, upload date, and version information, but shall not be able to view document contents. Ethics Committee members shall be able to view document contents where required for review.
 
-**FR-15: Segmented Audit Trail**
-The system shall maintain an audit trail of all actions taken on an application. Admin-side actions (submissions, completeness checks, forwarding, communications) shall be visible to both administrative staff and Ethics Committee members. Committee-side actions (reviews, deliberations, decisions) shall be visible only to Ethics Committee members.
+**FR-15: Segmented Audit Trail and Communication Visibility**
+The system shall maintain an audit trail for each application, including submissions, status changes, document uploads, forwarding actions, and application-related communications. Administrative actions shall be visible to administrative staff and Ethics Committee members. Committee deliberations and committee-to-researcher communications concerning document content shall be visible only to authorised committee members.
 
 **FR-16: New Case for Scope Changes**
 The system shall require that any change in research scope after approval be submitted as a new application. The system shall allow the new application to reference the original approved case.
