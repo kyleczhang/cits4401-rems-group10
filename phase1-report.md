@@ -94,22 +94,22 @@ The following user stories capture the needs of three key stakeholders: Administ
 
 #### Q1 & Q2: Application Verification Process and Status Tracking
 
-**Response summary:** The interviewee described the current workflow as follows. A researcher is informed by their supervisor that ethics approval is needed. The researcher completes a risk assessment questionnaire on a separate website, receiving a numerical risk score. They then launch a new case on the current ERMS, enter their risk score, and upload supporting documents. The system determines which documents are required based on the risk score — lower risk means fewer documents, higher risk requires more stringent documentation.
+**Response summary:** The interviewee described the current workflow as follows. A researcher is informed by their supervisor that ethics approval is needed. The researcher completes a risk assessment questionnaire on a separate website, receiving a numerical risk score. They then launch a new case on the current ERMS, enter their risk score, and upload supporting documents. The system determines which documents are required based on the risk score, with lower risk meaning fewer documents and higher risk requiring more stringent documentation.
 
-Administrative staff check whether the required documents are present using a quick checklist (taking less than one minute when files are locatable). However, the major pain point is that documents are scattered across the ERMS, email attachments, SharePoint links, and drop links — particularly for sensitive files with unsupported formats (e.g., encrypted, time-sensitive legal documents with metadata-based expiry). Tracking application status relies entirely on email chains. Once an application is passed to the Ethics Committee, admin staff only re-engage when contacted by committee members about issues or when informed of a final decision.
+Administrative staff check whether the required documents are present using a quick checklist (taking less than one minute when files are locatable). However, the major pain point is that documents are scattered across the ERMS, email attachments, SharePoint links, and drop links, particularly for sensitive files with unsupported formats (e.g., encrypted, time sensitive legal documents with self-expiring metadata settings). Tracking application status relies entirely on email chains. Once an application is passed to the Ethics Committee, admin staff only re-engage when contacted by committee members about issues or when informed of a final decision.
 
 **Key insights:**
 
 - The completeness check itself is fast; the bottleneck is *locating* files across multiple platforms.
 - The current ERMS has limited file type support (PDF and Word only), forcing sensitive documents onto other platforms.
 - Status tracking is entirely informal, based on email chains with no centralised view.
-- Risk score drives document requirements dynamically — the system must support configurable, risk-score-based checklists.
+- Risk score drives document requirements dynamically, so the system must support configurable, risk-score-based checklists.
 
 **Refinement to requirements:** The system must centralise all document storage with broad file format support. A status tracking dashboard is essential. Document requirements must be dynamically determined based on the application's risk category.
 
 #### Q3: Supporting Documents and Version Control
 
-**Response summary:** Version control is handled poorly. When a revision is requested, the current process provides poor support for checking whether only the requested changes were made — a legal concern. The only way to track versions is by reviewing email chains to determine which document was sent first. The interviewee expressed a desire for a "thread-based system" with a timeline showing which documents were submitted and when.
+**Response summary:** Version control is handled poorly. When a revision is requested, the current process provides poor support for checking whether only the requested changes were made, which is a legal concern. The only way to track versions is by reviewing email chains to determine which document was sent first. The interviewee expressed a desire for a "thread-based system" with a timeline showing which documents were submitted and when.
 
 **Key insights:**
 
@@ -126,25 +126,25 @@ Administrative staff check whether the required documents are present using a qu
 **Key insights:**
 
 - This contradicts our initial assumption (from the project brief) that admin staff assign reviewers. In practice, admin staff's role ends at forwarding the verified application.
-- The committee operates its own internal allocation process — the REMS should support but not prescribe this.
+- The committee operates its own internal allocation process, which the REMS should support but not prescribe.
 
 **Refinement to requirements:** The system should allow admin staff to tag and forward applications to the committee pipeline, but reviewer assignment functionality belongs to the committee's workflow, not the admin interface. The original assumption that admin staff assign reviewers has been corrected.
 
 #### Q5: Communication with Researchers
 
-**Response summary:** Communication is conducted exclusively via email. The only reasons admin staff contact researchers are missing files or inconsistencies. Importantly, admin staff cannot see the *contents* of documents — only headers and file names — so content-related queries are handled directly by Ethics Committee members contacting researchers. This is a privacy constraint: committee deliberations and document contents are privileged.
+**Response summary:** Communication is conducted exclusively via email. The only reasons admin staff contact researchers are missing files or inconsistencies. Importantly, admin staff cannot see the *contents* of documents and can access only headers and file names, so content-related queries are handled directly by Ethics Committee members contacting researchers. This is a privacy constraint: committee deliberations and document contents are privileged.
 
 **Key insights:**
 
 - There is a strict separation of concerns: admin staff handle logistics (missing files), committee members handle content issues.
-- Admin staff have no visibility into document contents — only metadata (file names, types).
+- Admin staff have no visibility into document contents and can access only metadata (file names, types).
 - Committee-to-researcher communication bypasses admin staff for content-sensitive matters.
 
 **Refinement to requirements:** The system must enforce role-based access control where admin staff can see document metadata but not contents. The communication module must support two distinct channels: admin-to-researcher (for logistical issues) and committee-to-researcher (for content issues), both attached to the application record for audit purposes.
 
 #### Q6: Common Causes of Delays
 
-**Response summary:** Delays occur evenly across both submission and review stages. At submission, researchers may not understand which documents to submit (sometimes due to language barriers). At the review stage, researchers may have submitted all required documents but failed to include the correct content within them — something only the committee can identify. The interviewee noted that the admin team's checklist is only about *presence* of documents, not their quality or content.
+**Response summary:** Delays occur evenly across both submission and review stages. At submission, researchers may not understand which documents to submit (sometimes due to language barriers). At the review stage, researchers may have submitted all required documents but failed to include the correct content within them, which is something only the committee can identify. The interviewee noted that the admin team's checklist is only about *presence* of documents, not their quality or content.
 
 **Key insights:**
 
@@ -161,7 +161,7 @@ Administrative staff check whether the required documents are present using a qu
 **Key insights:**
 
 - This is a significant clarification: amendments are treated as entirely new applications, not modifications of existing ones.
-- The original approval remains valid for its original scope — it is not revoked.
+- The original approval remains valid for its original scope and is not revoked.
 
 **Refinement to requirements:** The system does not need an "amend existing application" workflow. Instead, it should support linking a new application to a prior related case for context. The requirements around amendment workflows can be simplified accordingly.
 
@@ -171,7 +171,7 @@ Administrative staff check whether the required documents are present using a qu
 
 - **Admin staff** can see document headers/names and the admin-side audit trail, but cannot see document contents or committee deliberations.
 - **Ethics Committee** can see everything: document contents, committee audit trail, and admin audit trail.
-- **Researchers** see almost nothing during the process — they are only informed of the final decision (approved or rejected with reasons).
+- **Researchers** see almost nothing during the process and are only informed of the final decision (approved or rejected with reasons).
 
 **Key insights:**
 
@@ -183,7 +183,7 @@ Administrative staff check whether the required documents are present using a qu
 
 #### Q9: Conflict of Interest Management
 
-**Response summary:** Conflict of interest is self-declared. If an Ethics Committee member has a conflict with a researcher, they raise it to the Ethics Board, which manages reassignment. Similarly, if an admin staff member has a conflict, they raise it to the admin board for reassignment. This process is managed independently by the respective boards — admin staff do not play a role in managing committee conflicts.
+**Response summary:** Conflict of interest is self-declared. If an Ethics Committee member has a conflict with a researcher, they raise it to the Ethics Board, which manages reassignment. Similarly, if an admin staff member has a conflict, they raise it to the admin board for reassignment. This process is managed independently by the respective boards, and admin staff do not play a role in managing committee conflicts.
 
 **Key insights:**
 
@@ -194,7 +194,7 @@ Administrative staff check whether the required documents are present using a qu
 
 #### Q10: Most Time-Consuming Workflow Areas
 
-**Response summary:** The interviewee reiterated that file management — locating and tracking documents across platforms — is by far the most time-consuming and error-prone part of the workflow.
+**Response summary:** The interviewee reiterated that file management, particularly locating and tracking documents across platforms, is by far the most time-consuming and error-prone part of the workflow.
 
 **Refinement to requirements:** Centralised document storage is confirmed as the highest-priority feature.
 
