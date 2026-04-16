@@ -263,7 +263,7 @@ The system shall allow administrative staff to tag a verified application with i
 **FR-10: Administrative Communication with Researchers**
 The system shall allow administrative staff to send requests to researchers regarding missing documents, incomplete submissions, or other administrative issues. Each communication shall be linked to the relevant application record and stored with its sender, recipient, timestamp, and message content.
 
-**FR-11: Committee Communication with Researchers**
+**FR-11: Committee-to-Researcher Communication**
 The system shall allow Ethics Committee members to send clarification or revision requests directly to researchers regarding the content or adequacy of submitted documents. Each communication shall be linked to the relevant application record and stored with its sender, recipient, timestamp, and message content.
 
 **FR-12: Deadline Tracking and Alerts**
@@ -273,7 +273,7 @@ The system shall track the elapsed time since the submission date of each applic
 The system shall allow an authorised user to mark an application as expedited when the application is at risk of exceeding the university's two-week processing target. When an application is marked as expedited, the system shall record this action in the audit trail and notify the researcher.
 
 **FR-14: Role-Based Access to Documents**
-The system shall enforce role-based access controls on application documents. Administrative staff shall be able to view document metadata, including file name, file type, upload date, and version information, but shall not be able to view document contents. Ethics Committee members shall be able to view document contents where required for review.
+The system shall enforce role-based access controls on application documents. Administrative staff shall be able to view document metadata, including file name, file type, upload date, and version information, but shall not be able to view document contents.
 
 **FR-15: Segmented Audit Trail and Communication Visibility**
 The system shall maintain an audit trail for each application, including submissions, status changes, document uploads, forwarding actions, and application-related communications. Administrative actions shall be visible to administrative staff and Ethics Committee members. Committee deliberations and committee-to-researcher communications concerning document content shall be visible only to authorised committee members.
