@@ -23,7 +23,7 @@ Researchers are the primary users who initiate the ethics approval process. They
 
 ### 1.2 Administrative Staff
 
-Administrative staff serve as the operational backbone of the ethics workflow. They receive submitted applications, perform completeness checks against a checklist determined by the application's risk score, and forward verified applications to the Ethics Committee. They act as the communication intermediary between researchers and the Ethics Committee — relaying requests for missing documents and communicating final decisions. Their interest in REMS is a centralised system where all application files are located in one place, with reliable status tracking and version control. From the interview, their single biggest pain point is locating files scattered across email, SharePoint, and the current ERMS platform.
+Administrative staff serve as the operational backbone of the ethics workflow. They receive submitted applications, perform completeness checks against a checklist determined by the application's risk score, and forward verified applications to the Ethics Committee. They act as the communication intermediary between researchers and the Ethics Committee by relaying requests for missing documents and communicating final decisions. Their interest in REMS is a centralised system where all application files are located in one place, with reliable status tracking and version control. From the interview, their single biggest pain point is locating files scattered across email, SharePoint, and the current ERMS platform.
 
 ### 1.3 Ethics Committee Members
 
@@ -31,11 +31,11 @@ Ethics Committee members are responsible for reviewing the content of ethics app
 
 ### 1.4 Ethics Committee Chair / Ethics Board
 
-The Ethics Committee Chair and the broader Ethics Board oversee policy, handle escalated high-risk cases, and manage structural matters such as conflict-of-interest declarations and reviewer reassignment. They do not participate in routine day-to-day application processing. Their interest in REMS is visibility into policy compliance, the ability to manage escalations, and oversight of committee workload and conflict-of-interest processes.
+The Ethics Committee Chair and the broader Ethics Board oversee policy, handle escalated high-risk cases, and manage structural matters such as declarations of conflicts of interest and reviewer reassignment. They do not participate in routine day-to-day application processing. Their interest in REMS is visibility into policy compliance, the ability to manage escalations, and oversight of committee workload and processes for managing conflicts of interest.
 
 ### 1.5 Research Supervisors
 
-Supervisors inform researchers that ethics approval is required for their projects and may provide guidance on the application. They are an initiating stakeholder — triggering the process — and have an interest in ensuring their students' applications progress smoothly and meet requirements.
+Supervisors inform researchers that ethics approval is required for their projects and may provide guidance on the application. They are an initiating stakeholder because they trigger the process, and they have an interest in ensuring their students' applications progress smoothly and meet requirements.
 
 ### 1.6 Study Participants
 
