@@ -28,7 +28,18 @@ REMS is designed as a [modular monolith](https://www.milanjovanovic.tech/blog/wh
 
 ## 1.5 Use-Case-to-Component Mapping
 
-[TODO] Add use-case-to-component mapping
+The table below maps the main Phase 1 use cases in the administrative workflow slice to the proposed architecture components. This shows which parts of the design are responsible for each user-facing workflow.
+
+| Use case / responsibility | Main components | Component responsibility |
+|---|---|---|
+| Submit Ethics Application | Web Client, Auth Gateway, Application Service | The Web Client collects the researcher’s application details and risk score. The Auth Gateway verifies the user session, and the Application Service creates the application record and initial status. |
+| Upload Supporting Documents | Web Client, Document Service, PostgreSQL, Object Store | The Document Service stores file bytes in the object store and records metadata such as file name, file type, uploader, timestamp, version number, and SHA-256 hash in PostgreSQL. |
+| Verify Application Completeness | Application Service, Document Service | The Application Service resolves the required checklist from the application’s risk score and compares it with document metadata exposed by the Document Service. Admin staff are shown whether required documents are present, missing, or invalid. |
+| Request Missing Documents | Application Service, Notification Service, Audit Service | If documents are missing or invalid, the Application Service changes the status to Returned to Researcher. The Notification Service sends the request, and the Audit Service records the action. |
+| Forward Application to Committee | Application Service, Audit Service, Notification Service | Once admin staff confirm completeness, the Application Service updates the status to Forwarded to Committee. The Audit Service records the transition, and the Notification Service sends the relevant status update. |
+| View Application Status | Web Client, Auth Gateway, Application Service | The Application Service provides the current application status. The Auth Gateway ensures that users only access views permitted for their role. |
+| View Document Version History | Document Service, Audit Service | The Document Service provides version metadata without exposing document contents to admin staff. The Audit Service records upload and replacement events for traceability. |
+| Mark Application as Expedited | Scheduler, Application Service, Notification Service, Audit Service | The Scheduler identifies applications approaching the two-week SLA. The Application Service applies the expedited flag, the Notification Service sends updates where required, and the Audit Service records the change. |
 
 ## 1.6 Non-Functional Requirements that Most Shaped the Design
 
