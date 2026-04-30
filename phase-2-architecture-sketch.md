@@ -24,7 +24,31 @@ REMS is designed as a [modular monolith](https://www.milanjovanovic.tech/blog/wh
 
 ## 1.4 Major Data Flows
 
-[TODO] Add major data flows
+The main data flows in the administrative workflow subsystem are described below.
+
+1. **Application submission flow**  
+
+   A researcher enters application details through the Web Client.The request goes to the Auth Gateway that verifies the user session and forwards the request to the Application Service. 
+   The Application Service stores application metadata, including researcher details,risk score,submission date and current status, in PostgreSQL.
+
+2. **Document upload and versioning flow**  
+   The researcher uploads necessary documents through the Web Client. The Auth Gateway verifies access and forwards the upload to the Document Service.The Document Service stores the file contents in the object store and records document metadata in PostgreSQL including file name, file type, uploader, timestamp, version number, and SHA-256 hash. This supports records and version control.
+
+3. **Administrative completeness checking flow**  
+   Admin staff access the application through the Web Client. The Auth Gateway checks that the user has the admin role. The Application Service retrieves the application risk score and required checklist, while the Document Service provides document metadata only.Admin staff can verify whether required documents are present without looking into the document contents.
+
+4. **Missing document or revision request flow**  
+   If required documents are missing or invalid,the admin staff triggers a return action through the Web Client.The Application Service updates the application status to “Returned to Researcher”.The Notification Service sends an email to the researcher explaining what is needed and the Audit Service keeps the records of the action.
+
+5. **Forwarding application to committee flow**  
+   Once the application is complete, admin staff forwards it to the Ethics Committee. The Application Service updates the status to “Forwarded to Committee”.The Committee Portal can then access the application,subject to role-based permissions. Unlike admin staff,committee members can access the full document contents.
+
+6. **Deadline monitoring flow**  
+   The Scheduler periodically checks application submission dates against the two-week turnaround target. If an application is approaching the deadline,the Scheduler notifies the Application Service,which applies an deadline-warning status.The Notification Service may send an update where required and the Audit Service records the change.
+
+7. **Audit logging flow**  
+  Important actions such as submitting an application, uploading documents, changing status, requesting missing documents, forwarding to the committee and marking applications as expedited are recorded by the Audit Service.The Audit Service keeps these records in a secure log so they cannot be changed or deleted.Access to these logs is controlled based on roles. Admin-related actions can be viewed by both admin staff and the ethics committee, while sensitive committee discussions are only visible to the committee.
+
 
 ## 1.5 Use-Case-to-Component Mapping
 
