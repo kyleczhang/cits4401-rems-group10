@@ -2,11 +2,11 @@
 
 **Group Number:** 10
 
-Scope: the **REMS administrative workflow subsystem**, including researcher-facing submission, status, and notification flows, but excluding internal committee review.
-
 ## 1.1 Architecture Style and Rationale
 
-REMS is designed as a [modular monolith](https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith): one server behind an auth gateway, backed by [PostgreSQL](https://www.postgresql.org/), an S3-compatible object store, and a small asynchronous job queue. We did not choose microservices because the expected single-university scale does not justify the extra complexity of service-to-service authentication, distributed tracing, independent deployment, and cross-service failure handling. We also rejected a SharePoint-style extension because Phase 1 identified fragmented document storage as the main operational problem. The modular-monolith structure keeps operations simple while still giving clear internal boundaries for confidentiality, audit visibility, and workflow logic.
+Scope: This architecture sketch covers the **REMS administrative workflow subsystem**, including researcher-facing submission, status, and notification flows, but excluding internal committee review.
+
+REMS is designed as a [modular monolith](https://www.milanjovanovic.tech/blog/what-is-a-modular-monolith) with an auth gateway as its ingress, backed by [PostgreSQL](https://www.postgresql.org/), an S3-compatible object store, and a small asynchronous job queue. We did not choose microservices because the expected single-university scale does not justify the extra complexity of service-to-service authentication, distributed tracing, independent deployment, and cross-service failure handling. We also rejected a SharePoint-style extension because Phase 1 identified fragmented document storage as the main operational problem. The modular-monolith structure keeps operations simple while still giving clear internal boundaries for confidentiality, audit visibility, and workflow logic.
 
 ## 1.2 Component Responsibilities
 
@@ -21,7 +21,7 @@ REMS is designed as a [modular monolith](https://www.milanjovanovic.tech/blog/wh
 
 ## 1.3 Component Block Diagram
 
-![phase-2-architecture-sketch-diagram](./phase-2-architecture-sketch-diagram.drawio.png)
+![Block diagram of the REMS administrative workflow subsystem](./phase-2-architecture-sketch-diagram.drawio.png)
 
 ## 1.4 Major Data Flows
 
