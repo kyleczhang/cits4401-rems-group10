@@ -21,7 +21,7 @@ REMS is designed as a [modular monolith](https://www.milanjovanovic.tech/blog/wh
 
 ## 1.3 Component Block Diagram
 
-[TODO] Add block diagram
+![phase-2-architecture-sketch-diagram](./phase-2-architecture-sketch-diagram.drawio.png)
 
 ## 1.4 Major Data Flows
 
