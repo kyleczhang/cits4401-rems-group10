@@ -1,0 +1,59 @@
+---
+config:
+  layout: elk
+---
+flowchart TB
+ subgraph Monolith["Modular Monolith Boundary"]
+        Web["Web Client SPA"]
+        Auth["Auth Gateway"]
+        AppSvc["Application Service"]
+        DocSvc["Document Service"]
+        NotifSvc["Notification Service"]
+        AuditSvc["Audit Service"]
+        Sched["Scheduler"]
+        PG[("PostgreSQL")]
+        S3[("S3-Compatible Object Store")]
+        Queue[["Async Job Queue"]]
+  end
+ subgraph Legend["Legend (Node Types & Traffic Flow)"]
+    direction LR
+        L5["Async/Queue System"]
+        L4["Databases & Storage"]
+        L3["Business Services (in Monolith)"]
+        L2["Auth Gateway"]
+        L1["Web Client / UI"]
+  end
+    Web --> Auth
+    Auth --> AppSvc
+    AppSvc --> NotifSvc & AuditSvc & Sched & DocSvc
+    DocSvc --> PG & S3
+    NotifSvc -.-> Queue
+    Sched -.-> Queue
+    Queue --> PG
+    AuditSvc --> PG
+
+     Web:::webNode
+     Auth:::authNode
+     AppSvc:::svcNode
+     DocSvc:::svcNode
+     NotifSvc:::svcNode
+     AuditSvc:::svcNode
+     Sched:::svcNode
+     PG:::dataNode
+     S3:::dataNode
+     Queue:::queueNode
+     L5:::queueNode
+     L5:::queueNode
+     L4:::dataNode
+     L4:::dataNode
+     L3:::svcNode
+     L3:::svcNode
+     L2:::authNode
+     L2:::authNode
+     L1:::webNode
+     L1:::webNode
+    classDef webNode stroke:#38bdf8,fill:#f0f9ff,color:#1e1b4b
+    classDef authNode stroke:#a78bfa,fill:#f5f3ff,color:#1e1b4b
+    classDef svcNode stroke:#818cf8,fill:#eef2ff,color:#1e1b4b
+    classDef dataNode stroke:#2dd4bf,fill:#f0fdfa,color:#1e1b4b
+    classDef queueNode stroke:#facc15,fill:#fefce8,color:#1e1b4b
